@@ -2,18 +2,44 @@
 set helplang=cn
 "colorscheme impactG
 colorscheme evening
-:filetype plugin indent on
+filetype on
+filetype plugin indent on
+syntax on
 
-"Ëõ½ø¶¨Òå
+"ä¸­æ–‡ç¼–ç 
+set encoding=utf-8
+set termencoding=utf-8
+set fileencoding=utf-8
+set fileencodings=usc-bom,utf-8,chinese,cp936
+set langmenu=zh_CN.utf-8
+language messages zh_CN.utf-8
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+set ambiwidth=double "è®¾ç½®å®½åº¦ä¸æ˜çš„æ–‡å­—(å¦‚ â€œâ€â‘ â‘¡â†’ )ä¸ºåŒå®½åº¦æ–‡æœ¬
+
+"normalæ¨¡å¼ä¸‹å–æ¶ˆè¾“å…¥æ³•
+autocmd! InsertLeave * set imdisable
+autocmd! InsertEnter * set noimdisable
+"Fast editing of _vimrc
+    map <leader>e :split $USERPROFILE\.vimrc.local<cr>
+    map <leader>eb :split  $USERPROFILE\.vimrc.bundles.local<cr>
+
+"reload _vimrc
+    map <leader>s :source $USERPROFILE\.vimrc.local<cr>
+    map <leader>sb :source $USERPROFILE\.vimrc.bundles.local<cr>
+    "autocmd! bufwritepost .vimrc.local source $USERPROFILE\.vimrc.local
+    "autocmd! bufwritepost .vimrc.bundles.local source $USERPROFILE\.vimrc.bundles.local
+
+"ç¼©è¿›å®šä¹‰
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set expandtab
 set smarttab
 set autoindent
-"È¡Ïû±¸·İ
+"å–æ¶ˆå¤‡ä»½
 set nobackup
-" ¹Ø±Õ´íÎóÉùÒô
+" å…³é—­é”™è¯¯å£°éŸ³
 "set noerrorbells visualbell t_vb=
 "if has('autocmd')
   "autocmd GUIEnter * set visualbell t_vb=
@@ -21,20 +47,17 @@ set nobackup
 
 set listchars=tab:>-,trail:-,extends:#,nbsp:. " Highlight problematic whitespace
 
-"È«ÆÁ
+"å…¨å±
 au GUIEnter * simalt ~x
 
-"python »·¾³
+"python ç¯å¢ƒ
 au BufNewFile,BufRead *.py,*.pyw setf python
-syntax on
 map <F5> :! python.exe %
 
 "pydiction 1.2 python auto complete
-filetype plugin on
 let g:pydiction_location = 'D:/Program Files (x86)/Vim/vimfiles/tools/pydiction/complete-dict'
 
 "Powerline configuration
-set encoding=utf-8
 set laststatus=2
 set guifont=Consolas\ for\ Powerline\ FixedD:h13:cANSI
 set t_Co=256
@@ -42,17 +65,8 @@ let g:Powerline_symbols = "fancy"
 let g:Powerline_mode_cv = "V.BLOCK"
 let g:Powerline_mode_V = "V.LINE"
 
-"ÖĞÎÄ±àÂë
-set fileencodings=utf-8,ucs-bom,cp936,chinese
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
-language messages zh_CN.utf-8
-"if v:lang =~? '^\(zh\)\|\(ja\)\|\(ko\)'
-    "set ambiwidth=double
-"endif
-"set nobomb
 
-"È«ÆÁÄ£Ê½ĞèÒªgvimfullscreen²å¼ş
+"å…¨å±æ¨¡å¼éœ€è¦gvimfullscreenæ’ä»¶
 if has('gui_running')
     map <F11> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 endif
@@ -79,7 +93,7 @@ map <silent> <F2> :if &guioptions =~# 'T' <Bar>
         \set guioptions+=r <Bar>
         \set guioptions+=b <Bar>
     \endif<CR>
-"È¥µôÌÖÑáµÄ×ó±ß»ÒÉ«Ìõ×´bar
+"å»æ‰è®¨åŒçš„å·¦è¾¹ç°è‰²æ¡çŠ¶bar
 set foldcolumn=0
 
 ""general
