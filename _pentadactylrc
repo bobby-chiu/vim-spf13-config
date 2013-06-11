@@ -1,0 +1,70 @@
+
+"使用如下命令可以使hint模式字体大点
+hi Hint font:bold 15px "Droid Sans Mono", Consolas !important; margin:-.2ex; padding: 0 0 0 1px; outline:1px solid rgba(0, 0, 0, .5); background:red; color:black; text-transform:uppercase;
+
+"命令行下拉菜单最多显示的条目数
+:set maxitems=6
+:set noerrorbells
+:set hintkeys=asdfglkjh
+:set hlfind
+"搜索选中的字符串,并可选搜索引擎
+command! -nargs=? -complete=search SearchSelect exe 't <args> ' + content.getSelection()
+map S :SearchSelect<Space>
+
+:nmap gf <Nop>
+:nmap gF <Nop>
+:nmap -builtin ] ]]
+:nmap -builtin [ [[
+
+:nmap -builtin y Y
+:nmap -builtin Y y
+
+:nmap -builtin <C-c> <C-v><C-c>
+:nmap -builtin <C-a> <C-v><C-a>
+:cmap -builtin <C-c> <C-v><C-c>
+:cmap -builtin <C-v> <C-v><C-v>
+:cmap -builtin <C-x> <C-v><C-x>
+:imap -builtin <C-a> <C-v><C-a>
+:imap -builtin <C-c> <C-v><C-c>
+:imap -builtin <C-v> <C-v><C-v>
+:imap -builtin <C-x> <C-v><C-x>
+:imap -builtin <C-z> <C-v><C-z>
+
+:nmap -builtin <leader>tm :tabopen mail.google.com<CR>
+:nmap -builtin <leader>tr :tabopen www.google.com/reader<CR>
+:nmap -builtin <leader>tx :tabopen xbeta.info<CR>
+:nmap -builtin <leader>te :tabopen xbeta.info/wp-admin<CR>
+
+"加快页面的翻转,原来的太慢了,Noremap是不要递归映射
+:nmap -builtin j 5j
+:nmap -builtin k 5k
+
+"用H L 打开前一个和后一个标签页,小写即可
+:nmap -builtin H gT
+:nmap -builtin L gt
+:nmap -builtin J <C-o>
+:nmap -builtin K <C-i>
+
+
+:nmap -builtin d D
+:nmap -builtin D d
+"在新窗口打开主页(当前窗口打开主页是gh)
+:nmap -builtin gh gH
+:nmap -builtin gH gh
+
+" map to js functions F2来显示隐藏工具栏
+:map <silent> <F2> : set go!=T <CR>
+
+:map , <Leader>
+
+":autocmd LocationChange (www|mail).google.com/(reader|mail) -js modes.set(modes.PASS_THROUGH)
+
+
+"命令行模式禁用输入法
+style -name commandline-ime http://*,https://* input,textarea {ime-mode: active;}
+style chrome://* #dactyl-commandline-command input {ime-mode:inactive;}
+style chrome://* #dactyl-statusline-field-commandline-command input {ime-mode:inactive;}
+
+"next page and previsous page
+set nextpattern=\s*下一页|下一张|下一篇|下页|后页\s*,^\bnext\b,\\bnext\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b
+set previouspattern=\s*上一页|上一张|上一篇|上页|前页\s*,^\bprev|previous\b,\\bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$
