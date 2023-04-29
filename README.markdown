@@ -1,4 +1,5 @@
-This is bobby's simple configuration of spf-vim and pentadactylrc.
-To know more about you can visit https://github.com/spf13/spf13-vim
-pentadactylrc is a Plugins run on firefox, it makes you use browse like vim.
-It is almost same as vimperator,another plugin.
+This is my common unix-like shell configuration, including:
+vim [based on spf13, https://github.com/spf13/spf13-vim]
+tmux [terminal multiplexer]
+bash [shell configuration based on ubuntu]
+pentadactyl [vim-like web browsing for firefox, similar as vimperator]

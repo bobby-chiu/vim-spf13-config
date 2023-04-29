@@ -1,3 +1,43 @@
+
+
+"Bundle 'AnsiEsc.vim'
+
 let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming', 'python']
-let g:spf13_use_old_powerline=1
+"let g:spf13_use_old_powerline=1
 "let g:override_spf13_bundles = 1
+
+"Bundle 'majutsushi/tagbar'
+Bundle 'wombat256.vim'
+
+"matlab plugins
+Bundle 'matlab.vim'
+Bundle 'matlab_run.vim'
+Bundle 'MatlabFilesEdition'
+Bundle 'GenerateMatlabFunctionComment'
+
+"Bundle 'shymenu'
+UnBundle 'xolox/vim-shell'
+UnBundle 'xolox/vim-misc'
+UnBundle 'xolox/vim-session'
+"Bundle 'LaTex-Suite-aka-Vim-LaTex'
+Bundle 'spf13/vim-autoclose'
+UnBundle 'izx64/Vim-LaTeX-Mirror'
+"Bundle 'bling/vim-airline'
+"Bundle 'LaTex-Box'
+"Bundle 'vim-latex'
+UnBundle 'Yggdroot/indentLine'
+
+UnBundle 'ctrlpvim/ctrlp.vim'
+UnBundle 'tacahiroy/ctrlp-funky'
+UnBundle 'vim-scripts/sessionman.vim'
+UnBundle 'easymotion/vim-easymotion'
+UnBundle 'arnaud-lb/vim-php-namespace'
+UnBundle 'elzr/vim-json'
+UnBundle 'pangloss/vim-javascript'
+UnBundle 'pythoncomplete'
+UnBundle 'yssource/python.vim'
+UnBundle 'python_match.vim'
+UnBundle 'klen/python-mode'
+UnBundle 'nathanaelkane/vim-indent-guides'
+UnBundle 'kana/vim-textobj-indent'
+UnBundle 'vim-xkbswitch'
